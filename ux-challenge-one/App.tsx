@@ -1,6 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import tw from 'tailwind-react-native-classnames'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './screens/Home';
@@ -22,7 +22,7 @@ const MyTheme = {
 
 export default function App() {
   return (
-    <SafeAreaView style={[tw`flex-1`, { backgroundColor: '#EFEFFB' }]}>
+    <SafeAreaView style={[tw`flex-1`, { backgroundColor: '#EFEFFB', paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 }]}>
 
       <NavigationContainer theme={MyTheme}>
         <Tab.Navigator>
